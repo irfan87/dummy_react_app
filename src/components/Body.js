@@ -1,13 +1,38 @@
 import React, { Fragment, Component } from "react";
-import FetchRandomUser from "./FetchRandomUser";
+import Counter from "./Counter";
+// import FetchRandomUser from "./FetchRandomUser";
 // import Counter from "./Counter";
 // import ImageSlider from "./ImageSlider";
 // import ValidationsForm from "./ValidationsForm";
 // import DummyForm from "./DummyForm";
 
 class Body extends Component {
+  // state = {
+  //   visible: true,
+  // };
+
   state = {
-    visible: true,
+    count: 0,
+  };
+
+  handleIncrement = () => {
+    const { count } = this.state;
+
+    this.setState({
+      count: count + 1,
+    });
+  };
+
+  handleDecrement = () => {
+    const { count } = this.state;
+
+    if (count === 0) {
+      alert("0 is invalid");
+    } else {
+      this.setState({
+        count: count - 1,
+      });
+    }
   };
 
   render() {
@@ -42,7 +67,12 @@ class Body extends Component {
           </button> */}
           {/* <DummyForm /> */}
           {/* <ValidationsForm /> */}
-          <FetchRandomUser />
+          {/* <FetchRandomUser /> */}
+          <Counter
+            count={this.state.count}
+            increment={this.handleIncrement}
+            decrement={this.handleDecrement}
+          />
           <hr />
         </div>
       </Fragment>
