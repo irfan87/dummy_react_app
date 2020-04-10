@@ -1,7 +1,8 @@
 import React, { Fragment, Component } from "react";
-import Counter from "./Counter";
-import ImageSlider from "./ImageSlider";
-import ValidationsForm from "./ValidationsForm";
+import FetchRandomUser from "./FetchRandomUser";
+// import Counter from "./Counter";
+// import ImageSlider from "./ImageSlider";
+// import ValidationsForm from "./ValidationsForm";
 // import DummyForm from "./DummyForm";
 
 class Body extends Component {
@@ -10,18 +11,18 @@ class Body extends Component {
   };
 
   render() {
-    const { title } = this.props;
-    const { visible } = this.state;
+    // const { title } = this.props;
+    // const { visible } = this.state;
 
-    const buttonText = visible ? "Hide" : "Show";
-    let imageSlider = visible ? (
-      <ImageSlider />
-    ) : (
-      <div className={visible ? "visible" : "hidden"}>
-        <Counter />
-        Wanna see the images? just click 'Show'
-      </div>
-    );
+    // const buttonText = visible ? "Hide" : "Show";
+    // let imageSlider = visible ? (
+    //   <ImageSlider />
+    // ) : (
+    //   <div className={visible ? "visible" : "hidden"}>
+    //     <Counter />
+    //     Wanna see the images? just click 'Show'
+    //   </div>
+    // );
 
     // if (!visible) {
     //   imageSlider = <div>Nothing to display</div>;
@@ -29,18 +30,19 @@ class Body extends Component {
 
     return (
       <Fragment>
-        <h1>{title}</h1>
+        {/* <h1>{title}</h1> */}
         <div>
-          {imageSlider}
-          <button
+          {/* {imageSlider} */}
+          {/* <button
             onClick={() => {
               this.setState({ visible: !visible });
             }}
           >
             {buttonText}
-          </button>
+          </button> */}
           {/* <DummyForm /> */}
-          <ValidationsForm />
+          {/* <ValidationsForm /> */}
+          <FetchRandomUser />
           <hr />
         </div>
       </Fragment>
