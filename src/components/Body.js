@@ -1,7 +1,8 @@
 import React, { Fragment, Component } from "react";
 import Counter from "./Counter";
 import ImageSlider from "./ImageSlider";
-import DummyForm from "./DummyForm";
+import ValidationsForm from "./ValidationsForm";
+// import DummyForm from "./DummyForm";
 
 class Body extends Component {
   state = {
@@ -38,7 +39,8 @@ class Body extends Component {
           >
             {buttonText}
           </button>
-          <DummyForm />
+          {/* <DummyForm /> */}
+          <ValidationsForm />
           <hr />
         </div>
       </Fragment>
