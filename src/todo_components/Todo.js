@@ -1,9 +1,20 @@
 import React from "react";
 
-export const Todo = ({ text }) => {
+const Todo = ({ toggleComplete, todo }) => {
   return (
     <ul>
-      <li>{text}</li>
+      <li>
+        <div
+          style={{
+            textDecoration: todo.complete ? "line-through" : "",
+          }}
+          onClick={toggleComplete}
+        >
+          {todo.text}
+        </div>
+      </li>
     </ul>
   );
 };
+
+export default Todo;
