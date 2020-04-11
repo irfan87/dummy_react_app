@@ -5,6 +5,7 @@ import Todo from "./Todo";
 class TodoList extends Component {
   state = {
     todos: [],
+    todosToShow: "all",
   };
 
   addTodo = (todo) => {
@@ -28,12 +29,28 @@ class TodoList extends Component {
     });
   };
 
+  updateTodoToShow = (s) => {
+    this.setState({
+      todosToShow: s,
+    });
+  };
+
   render() {
+    let todos = [];
+
+    if (this.state.todosToShow === "all") {
+      todos = this.state.todos;
+    } else if (this.state.todosToShow === "active") {
+      todos = this.state.todos.filter((todo) => !todo.complete);
+    } else if (this.state.todosToShow === "complete") {
+      todos = this.state.todos.filter((todo) => todo.complete);
+    }
+
     return (
       <div>
         <h1>TodoList Component</h1>
         <TodoForm onSubmit={this.addTodo} />
-        {this.state.todos.map((todo) => {
+        {todos.map((todo) => {
           return (
             <Todo
               key={todo.id}
@@ -42,6 +59,21 @@ class TodoList extends Component {
             />
           );
         })}
+        <br />
+        <div>
+          You have {this.state.todos.filter((todo) => !todo.complete).length}{" "}
+          incomplete todo.
+        </div>
+        <br />
+        <div className="">
+          <button onClick={() => this.updateTodoToShow("all")}>All</button>
+          <button onClick={() => this.updateTodoToShow("active")}>
+            Active
+          </button>
+          <button onClick={() => this.updateTodoToShow("complete")}>
+            Complete
+          </button>
+        </div>
         <hr />
       </div>
     );
